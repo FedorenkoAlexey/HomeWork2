@@ -11,6 +11,8 @@ for (let i = 0; i < arr.length; i++) {
 // maxVal = 7
 var maxRightVal = 0;
 var maxRightIndex = 0;
+var sWaterRight = 0;
+var sStoneRight = 0; // общая площадь камней под водой
 for (let i = maxIndex + 1; i < arr.length; i++) {
   //	console.log(i);
   if (arr[i] > maxRightVal) {
@@ -18,10 +20,8 @@ for (let i = maxIndex + 1; i < arr.length; i++) {
     maxRightVal = arr[i];
   }
 }
-var stoneRight = arr.slice(maxIndex + 1, maxRightIndex); // - (массив) кол-во блоков под водой между вершинами
+var stoneRight = arr.slice(maxIndex + 1, maxRightIndex); // - (массив) кол-во секций (длинна под водой) между вершинами
 
-var sWaterRight = 0;
-var sStoneRight = 0; // общая площадь камней под водой
 for (let i = 0; i < stoneRight.length; i++) {
   sStoneRight += stoneRight[i];
 }
