@@ -3,13 +3,22 @@
 let arr = [0, 0, 0, 3, 4, 5, 1, 2, 9, 0, 0, 0, 5, 5, 0, 0];
 let maxVal = arr[0];
 let maxIndex = 0;
+let maxValR = arr[0];
+let maxIndexR = 0;
 for (let i = 0; i < arr.length; i++) {
   if (arr[i] > maxVal) {
     maxIndex = i;
     maxVal = arr[i];
   }
 }
-let rightArr = arr.slice(maxIndex, maxRightIndex);
+for (let i = 0; i < arr.length; i++) {
+  if (arr[i] > maxValR || maxValR == arr[i]) {
+    maxIndexR = i;
+    maxValR = arr[i];
+  }
+}
+
+let rightArr = arr.slice(maxIndexR, arr.length);
 let leftArr = arr.slice(0, maxIndex + 1);
 
 var maxRightIndex = 0;
@@ -26,7 +35,7 @@ function right(arr, maxIndex) {
   let sStoneRight = 0;
 
   for (let i = 1; i < arr.length; i++) {
-    if (arr[i] > maxRightVal) {
+    if (arr[i] > maxRightVal || maxRightVal == arr[i]) {
       maxRightIndex = i;
       maxRightVal = arr[i];
     }
@@ -56,7 +65,7 @@ function left(arr) {
   let sStoneLeft = 0;
 
   for (let i = arr.length - 2; i >= 0; i--) {
-    if (arr[i] > maxLeftVal) {
+    if (arr[i] > maxLeftVal || maxLeftVal == arr[i]) {
       maxLeftIndex = i;
       maxLeftVal = arr[i];
     }
